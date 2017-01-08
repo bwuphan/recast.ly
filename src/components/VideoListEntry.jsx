@@ -1,12 +1,13 @@
-var VideoListEntry = ({onListItemClick, videos, index}) => {
+var VideoListEntry = (props) => {
+
   return (
     <div className="video-list-entry">
       <div className="media-left media-middle">
-        <img className="media-object" src={videos.snippet.thumbnails.default.url}alt="" />
+        <img className="media-object" src={props.video.snippet.thumbnails.default.url}alt="" />
       </div>
       <div className="media-body">
-        <div className="video-list-entry-title" onClick={() => onListItemClick(videos).bind}>{videos.snippet.title}</div>
-        <div className="video-list-entry-detail">{videos.snippet.description}</div>
+        <div className="video-list-entry-title" onClick={() => props.onListItemClick(props.video)}>{props.video.snippet.title}</div>
+        <div className="video-list-entry-detail">{props.video.snippet.description}</div>
       </div>
     </div>
   );
